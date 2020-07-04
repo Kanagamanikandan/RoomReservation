@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.API", "Services\Id
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D0FB8E4C-9909-4684-A826-20D46F404781}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reservation.API", "Reservation.API\Reservation.API.csproj", "{732BF997-3121-4DE2-A154-FFBEA2F2DCDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIGateway", "APIGateway\APIGateway.csproj", "{F00B3B22-1FC5-44D7-9173-44473D6E1FBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,21 @@ Global
 		{0A1E9AA3-79AB-4D31-908E-03AE371779AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A1E9AA3-79AB-4D31-908E-03AE371779AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A1E9AA3-79AB-4D31-908E-03AE371779AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{732BF997-3121-4DE2-A154-FFBEA2F2DCDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{732BF997-3121-4DE2-A154-FFBEA2F2DCDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{732BF997-3121-4DE2-A154-FFBEA2F2DCDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{732BF997-3121-4DE2-A154-FFBEA2F2DCDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F00B3B22-1FC5-44D7-9173-44473D6E1FBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F00B3B22-1FC5-44D7-9173-44473D6E1FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F00B3B22-1FC5-44D7-9173-44473D6E1FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F00B3B22-1FC5-44D7-9173-44473D6E1FBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0A1E9AA3-79AB-4D31-908E-03AE371779AE} = {D0FB8E4C-9909-4684-A826-20D46F404781}
+		{732BF997-3121-4DE2-A154-FFBEA2F2DCDC} = {D0FB8E4C-9909-4684-A826-20D46F404781}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5E048B36-1230-49A1-9CB0-58437B4CDF13}
