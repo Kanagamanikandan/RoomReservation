@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
 using System.Security.Claims;
-using IdentityServer4.Test;
-using System.Security.Claims;
 using IdentityServer4;
 
 namespace Identity.API.Configuration
@@ -33,22 +31,33 @@ namespace Identity.API.Configuration
 
 
 
-        public static IEnumerable<Client> GetClients()
+        public static IEnumerable<Client> GetClients(Dictionary<string,string> clientsUrl)
         {
             return new List<Client>
             {
                new Client
-               {
-                    ClientId = "company-employee",
-                    ClientSecrets = new [] { new Secret("codemazesecret".Sha512()) },
+                {
+                    ClientId = "js",
+                    ClientName = "Room Reservation SPA",
                     AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
+                    RedirectUris =           { $"{clientsUrl["Spa"]}/redirect.html" },
+                    RequireConsent = false,
+                    PostLogoutRedirectUris = { $"{clientsUrl["Spa"]}/" },
+                    AllowedCorsOrigins =     { $"{clientsUrl["Spa"]}" },
                     AllowedScopes =
-                   { 
-                       IdentityServerConstants.StandardScopes.OpenId,
-                       "reservation",
-                       "employees"
-                   }
-                }
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "orders",
+                        "basket",
+                        "locations",
+                        "marketing",
+                        "webshoppingagg",
+                        "orders.signalrhub",
+                        "webhooks"
+                    },
+                },
             };
         }
 

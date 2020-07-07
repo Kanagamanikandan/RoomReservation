@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace Reservation.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("reservation")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

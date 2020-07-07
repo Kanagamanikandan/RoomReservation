@@ -41,12 +41,15 @@ namespace Identity.API
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            Dictionary<string, string> clientsUrl = new Dictionary<string, string>();
+            clientsUrl.Add("Spa", Configuration.GetValue<string>("spa"));
+
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
                 .AddInMemoryPersistedGrants()
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddInMemoryApiResources(Config.GetApiResources())
-                .AddInMemoryClients(Config.GetClients())
+                .AddInMemoryClients(Config.GetClients(clientsUrl))
                 .AddAspNetIdentity<IdentityUser>();
         }
 
