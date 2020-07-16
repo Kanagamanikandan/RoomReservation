@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace Reservation.API
 {
@@ -25,6 +26,16 @@ namespace Reservation.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSwaggerGen(options =>
+            {
+                //options.DescribeAllEnumsAsStrings();
+                options.SwaggerDoc("ReservationService", new OpenApiInfo
+                {
+                    Title = "Reservation Service",
+                    Version = "v1",
+                    Description = "The Reservation Microservice HTTP API."
+                });
+            });
             services.AddControllers();
         }
 
@@ -45,6 +56,12 @@ namespace Reservation.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger()
+            .UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/ReservationService/swagger.json", "Reservation Service API V1");
             });
         }
     }
