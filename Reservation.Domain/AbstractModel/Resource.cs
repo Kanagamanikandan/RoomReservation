@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Reservation.Domain.SeedWork;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Reservation.Domain.AbstractModel
 {
-    public abstract class Resource
+    public abstract class Resource : Entity
     {
         public ResourceType ResourceType { get; private set; }
 

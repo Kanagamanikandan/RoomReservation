@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Reservation.Domain.SeedWork;
 using Reservation.Domain.AbstractModel;
+using Reservation.Domain.AggregatesModel.ReservationAggregate;
 
 namespace Reservation.Domain.AggregatesModel.MeetingRoomAggregate
 {
@@ -18,8 +19,8 @@ namespace Reservation.Domain.AggregatesModel.MeetingRoomAggregate
         private int _numberOfChairs;
         public int NumberOfChairs => _numberOfChairs;
 
-        private readonly List<Resource> _movableResources = new List<Resource>();
-        public IReadOnlyCollection<Resource> Resources => _movableResources;
+        private readonly List<UnmovableResource> _unmovableResources = new List<UnmovableResource>();
+        public IReadOnlyCollection<UnmovableResource> UnmovableResources => _unmovableResources;
         protected MeetingRoom()
         { }
 

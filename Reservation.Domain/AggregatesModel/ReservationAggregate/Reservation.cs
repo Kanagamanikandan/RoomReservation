@@ -12,8 +12,8 @@ namespace Reservation.Domain.AggregatesModel.ReservationAggregate
         private int _meetingRoomId;
         public int MeetingRoomId => _meetingRoomId;
         
-        private readonly List<Resource> _movableResources = new List<Resource>();
-        public IReadOnlyCollection<Resource> Resources => _movableResources;
+        private readonly List<MovableResource> _movableResources = new List<MovableResource>();
+        public IReadOnlyCollection<MovableResource> Resources => _movableResources;
         
         protected Reservation() { }
         
