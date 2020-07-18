@@ -16,7 +16,7 @@ namespace Reservation.Infrastructure.EntityConfigurations
             officeConfiguration.Ignore(b => b.DomainEvents);
 
             officeConfiguration.Property(o => o.Id)
-                .UseHiLo("orderseq", ReservationContext.DEFAULT_SCHEMA);
+                .UseHiLo("officeseq", ReservationContext.DEFAULT_SCHEMA);
 
             officeConfiguration.Property<string>("_city")
                 .UsePropertyAccessMode(PropertyAccessMode.Field)

@@ -12,6 +12,8 @@ namespace Reservation.Infrastructure
         public DbSet<Office> Offices { get; set; }
         public DbSet<MeetingRoom> MeetingRooms { get; set; }
         public DbSet<UnmovableResource> UnmovableResources { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<MovableResource> MovableResources { get; set; }
 
         public ReservationContext(DbContextOptions<ReservationContext> options) : base(options) { }
 
@@ -20,6 +22,8 @@ namespace Reservation.Infrastructure
             modelBuilder.ApplyConfiguration(new OfficeEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new MeetingRoomEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new UnmovableResourceEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new ReservationEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new MovableResourceEntityTypeConfiguration());
         }
     }
 }

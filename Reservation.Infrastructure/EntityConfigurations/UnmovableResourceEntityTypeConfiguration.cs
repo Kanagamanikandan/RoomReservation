@@ -15,7 +15,7 @@ namespace Reservation.Infrastructure.EntityConfigurations
             entity.Ignore(b => b.DomainEvents);
 
             entity.Property(o => o.Id)
-                .UseHiLo("orderseq", ReservationContext.DEFAULT_SCHEMA);
+                .UseHiLo("unmovableresourcesseq", ReservationContext.DEFAULT_SCHEMA);
 
             entity.Property<int>("MeetingRoomId")
                 .IsRequired(true);
