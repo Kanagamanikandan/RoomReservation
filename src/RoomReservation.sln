@@ -13,11 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{80
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reservation", "Reservation", "{D297EA55-8AD7-41A5-807D-704B927D944C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reservation.API", "Reservation\Reservation.API\Reservation.API.csproj", "{3E5C2114-D688-4A4F-B3D6-D54BEEB55E36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reservation.API", "Services\Reservation\Reservation.API\Reservation.API.csproj", "{3E5C2114-D688-4A4F-B3D6-D54BEEB55E36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reservation.Domain", "Reservation.Domain\Reservation.Domain.csproj", "{162EE463-A298-4A3E-8C07-67633FD84E54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reservation.Domain", "Services\Reservation\Reservation.Domain\Reservation.Domain.csproj", "{162EE463-A298-4A3E-8C07-67633FD84E54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reservation.Infrastructure", "Reservation.Infrastructure\Reservation.Infrastructure.csproj", "{A4CC2593-6262-42F6-BB9B-F0DDDB054075}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reservation.Infrastructure", "Services\Reservation\Reservation.Infrastructure\Reservation.Infrastructure.csproj", "{A4CC2593-6262-42F6-BB9B-F0DDDB054075}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inventory", "Inventory", "{1CEB72A4-229B-4739-9CBF-99D34E273B79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +58,7 @@ Global
 		{3E5C2114-D688-4A4F-B3D6-D54BEEB55E36} = {D297EA55-8AD7-41A5-807D-704B927D944C}
 		{162EE463-A298-4A3E-8C07-67633FD84E54} = {D297EA55-8AD7-41A5-807D-704B927D944C}
 		{A4CC2593-6262-42F6-BB9B-F0DDDB054075} = {D297EA55-8AD7-41A5-807D-704B927D944C}
+		{1CEB72A4-229B-4739-9CBF-99D34E273B79} = {D0FB8E4C-9909-4684-A826-20D46F404781}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5E048B36-1230-49A1-9CB0-58437B4CDF13}
