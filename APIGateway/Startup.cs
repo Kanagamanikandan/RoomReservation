@@ -34,7 +34,6 @@ namespace APIGateway
             Action<IdentityServerAuthenticationOptions> opt = o =>
             {
                 o.Authority = identityUrl;
-                o.ApiName = "Gateway";
                 o.SupportedTokens = SupportedTokens.Both;
                 o.RequireHttpsMetadata = false;
             };

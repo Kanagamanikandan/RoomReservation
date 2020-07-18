@@ -16,7 +16,10 @@ namespace Identity.API.Configuration
         {
             return new List<ApiResource>
             {
-                new ApiResource("reservation", "Reservation Service"),
+                new ApiResource("reservation", "Reservation Service")
+                {
+                    Scopes={"reservation" }
+                },
                 new ApiResource("employees", "Employees Service"),
             };
         }
@@ -25,7 +28,8 @@ namespace Identity.API.Configuration
             return new List<IdentityResource>
             {
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile()
+                new IdentityResources.Profile(),
+                new IdentityResource("reservation", new[]{"sub"})
             };
         }
 
@@ -49,6 +53,40 @@ namespace Identity.API.Configuration
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
+                    },
+                },
+               new Client
+                {
+                    ClientId = "insomnia",
+                    ClientName = "Room Reservation SPA",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
+                    RedirectUris =           { $"https://insomnia.rest" },
+                    RequireConsent = false,
+                    PostLogoutRedirectUris = { $"https://insomnia.rest" },
+                    AllowedCorsOrigins =     { $"https://insomnia.rest" },
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                    },
+                },
+
+               new Client
+                {
+                    ClientId = "client_id_js",
+                    ClientName = "Room Reservation SPA",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
+                    RedirectUris =           { $"https://localhost:44345/Home/SignIn" },
+                    RequireConsent = false,
+                    PostLogoutRedirectUris = { $"https://localhost:44345" },
+                    AllowedCorsOrigins =     { $"https://localhost:44345" },
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "reservation",
                         "orders",
                         "basket",
                         "locations",
@@ -56,7 +94,7 @@ namespace Identity.API.Configuration
                         "webshoppingagg",
                         "orders.signalrhub",
                         "webhooks"
-                    },
+                    }
                 },
             };
         }

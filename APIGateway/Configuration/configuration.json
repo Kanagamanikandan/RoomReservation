@@ -13,7 +13,7 @@
       "Key": "Reservation",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "IdentityService",
-        "AllowedScopes": []
+        "AllowedScopes": ["openid" , "reservation"]
       }
     }
   ],
