@@ -37,6 +37,7 @@ namespace Reservation.API
                 });
             });
             services.AddControllers();
+            AddCustomDbContext(services, Configuration);
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -71,13 +72,7 @@ namespace Reservation.API
             });
         }
 
-
-
-    }
-
-    static class CustomExtensionsMethods
-    {
-        public static IServiceCollection AddCustomDbContext(this IServiceCollection services, IConfiguration configuration)
+        private IServiceCollection AddCustomDbContext(IServiceCollection services, IConfiguration configuration)
         {
             services.AddEntityFrameworkSqlServer()
                    .AddDbContext<ReservationContext>(options =>
@@ -93,5 +88,5 @@ namespace Reservation.API
 
             return services;
         }
-    }
+    }  
 }
