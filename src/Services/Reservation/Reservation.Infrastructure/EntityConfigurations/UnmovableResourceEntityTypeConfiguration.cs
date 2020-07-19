@@ -12,9 +12,9 @@ namespace Reservation.Infrastructure.EntityConfigurations
 
             entity.HasKey(e => e.Id);
 
-            entity.Ignore(b => b.DomainEvents);
+            entity.Ignore(e => e.DomainEvents);
 
-            entity.Property(o => o.Id)
+            entity.Property(e => e.Id)
                 .UseHiLo("unmovableresourcesseq", ReservationContext.DEFAULT_SCHEMA);
 
             entity.Property<int>("MeetingRoomId")

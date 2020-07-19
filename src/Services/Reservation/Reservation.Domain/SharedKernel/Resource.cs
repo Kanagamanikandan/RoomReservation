@@ -19,9 +19,8 @@ namespace Reservation.Domain.SharedKernel
 
     public enum ResourceType
     {
-        WhiteBoard,
+        WhiteBoard = 1,
         TelevisionOnMountWithWheels,
         Beamer,
-        Chairs
     }
 }

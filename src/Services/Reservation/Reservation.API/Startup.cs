@@ -21,7 +21,7 @@ namespace Reservation.API
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public virtual IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -74,8 +74,7 @@ namespace Reservation.API
 
         private IServiceCollection AddCustomDbContext(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddEntityFrameworkSqlServer()
-                   .AddDbContext<ReservationContext>(options =>
+            services.AddDbContext<ReservationContext>(options =>
                    {
                        options.UseSqlServer(configuration["ConnectionString"],
                            sqlServerOptionsAction: sqlOptions =>
