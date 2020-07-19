@@ -4,6 +4,8 @@
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Reservation.Domain.AggregatesModel.MeetingRoomAggregate;
     using Reservation.Domain.AggregatesModel.ReservationAggregate;
+    using System;
+
     class ReservationEntityTypeConfiguration : IEntityTypeConfiguration<Reservation>
     {
         public void Configure(EntityTypeBuilder<Reservation> entity)
@@ -26,7 +28,25 @@
                 .UsePropertyAccessMode(PropertyAccessMode.Field)
                 .HasColumnName("EmployeeId")
                 .IsRequired(true);
-            
+
+            entity.Property<DateTime>("_reservationDate")
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("ReservationDate")
+                .HasColumnType("date")
+                .IsRequired(true);
+
+            entity.Property<TimeSpan>("_startTime")
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("StartTime")
+                .HasColumnType("time(0)")
+                .IsRequired(true);
+
+            entity.Property<TimeSpan>("_endTime")
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("EndTime")
+                .HasColumnType("time(0)")
+                .IsRequired(true);
+
             entity.HasOne<MeetingRoom>()
                 .WithMany()
                 .HasForeignKey("_meetingRoomId");

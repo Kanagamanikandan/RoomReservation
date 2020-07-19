@@ -27,5 +27,9 @@
     <ProjectReference Include="..\Reservation.Infrastructure\Reservation.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Application\Queries\" />
+  </ItemGroup>
+
 
 </Project>
