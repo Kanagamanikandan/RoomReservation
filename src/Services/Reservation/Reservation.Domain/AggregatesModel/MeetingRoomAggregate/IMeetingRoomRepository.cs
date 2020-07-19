@@ -1,4 +1,5 @@
 ﻿using Reservation.Domain.SeedWork;
+using System.Threading.Tasks;
 
 namespace Reservation.Domain.AggregatesModel.MeetingRoomAggregate
 {
@@ -8,6 +9,6 @@ namespace Reservation.Domain.AggregatesModel.MeetingRoomAggregate
 
         void Update(MeetingRoom meetingRoom);
 
-        MeetingRoom GetAsync(int meetingRoomId);
+        Task<MeetingRoom> GetAsync(int meetingRoomId);
     }
 }
