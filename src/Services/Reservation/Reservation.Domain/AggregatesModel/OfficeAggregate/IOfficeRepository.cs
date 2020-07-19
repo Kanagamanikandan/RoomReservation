@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Reservation.Domain.AggregatesModel.OfficeAggregate
 {
-    public interface IfficeRepository:IRepository<Office>
+    public interface IOfficeRepository : IRepository<Office>
     {
         Office Add(Office office);
         void Update(Office office);
