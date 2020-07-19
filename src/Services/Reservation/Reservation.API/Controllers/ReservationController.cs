@@ -2,11 +2,14 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Reservation.Domain.AggregatesModel.ReservationAggregate;
 using System;
 
 namespace Reservation.API.Controllers
 {
+    using Reservation.API.Application.Commands;
+    using Reservation.Domain.AggregatesModel.ReservationAggregate;
+    using System.Threading.Tasks;
+
     [Route("api/[controller]")]
     [ApiController]
     public class ReservationController : ControllerBase
@@ -24,11 +27,18 @@ namespace Reservation.API.Controllers
             _reservationRepository = reservationRepository ?? throw new ArgumentNullException(nameof(reservationRepository));
         }
 
-        [HttpGet]
-        public ActionResult GetReservation()
+
+        [HttpPost]
+        public async Task<ActionResult< Reservation>> MakeReservationAsync([FromBody] MakeReservationCommand makeReservationCommand)
         {
-            _logger.LogInformation("----- Get Reservation ---------");
-            return Ok("ok");
+            _logger.LogInformation(
+                "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})",
+                makeReservationCommand.GetType(),
+                nameof(makeReservationCommand.EmployeeId),
+                makeReservationCommand.EmployeeId,
+                makeReservationCommand);
+
+            return await _mediator.Send(makeReservationCommand);
         }
 
         

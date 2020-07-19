@@ -6,7 +6,7 @@ namespace Reservation.Domain.AggregatesModel.ReservationAggregate
     {    
         protected MovableResource() { }
         
-        public MovableResource(int reservationId, ResourceType resourceType)
+        public MovableResource(ResourceType resourceType)
             :base(resourceType)
         {
         }
