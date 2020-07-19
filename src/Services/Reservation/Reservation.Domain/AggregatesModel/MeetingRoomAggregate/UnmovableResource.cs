@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Reservation.Domain.AbstractModel;
+using Reservation.Domain.SharedKernel;
 
 namespace Reservation.Domain.AggregatesModel.MeetingRoomAggregate
 {

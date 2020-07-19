@@ -7,21 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200718143819_Initial.cs" />
-    <Compile Remove="Migrations\20200718143819_Initial.Designer.cs" />
+    <Compile Remove="Infrastructure\Migrations\20200718143819_Initial.cs" />
+    <Compile Remove="Infrastructure\Migrations\20200718143819_Initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="5.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Infrastructure\Migrations\" />
   </ItemGroup>
 
   <ItemGroup>

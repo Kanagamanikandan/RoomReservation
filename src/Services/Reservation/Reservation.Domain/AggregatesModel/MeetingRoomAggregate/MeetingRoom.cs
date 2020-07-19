@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Reservation.Domain.SeedWork;
-using Reservation.Domain.AbstractModel;
+using Reservation.Domain.SharedKernel;
 using Reservation.Domain.AggregatesModel.ReservationAggregate;
 
 namespace Reservation.Domain.AggregatesModel.MeetingRoomAggregate

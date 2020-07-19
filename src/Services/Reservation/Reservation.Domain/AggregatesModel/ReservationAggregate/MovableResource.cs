@@ -1,4 +1,4 @@
-﻿using Reservation.Domain.AbstractModel;
+﻿using Reservation.Domain.SharedKernel;
 
 namespace Reservation.Domain.AggregatesModel.ReservationAggregate
 {

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Reservation.Domain.AbstractModel;
+using Reservation.Domain.SharedKernel;
 using Reservation.Domain.AggregatesModel.MeetingRoomAggregate;
 using Reservation.Domain.SeedWork;
 
 namespace Reservation.Domain.AggregatesModel.ReservationAggregate
 {
-    public class Reservation:Entity
+    public class Reservation : Entity, IAggregateRoot
     {
         private int _meetingRoomId;
         public int MeetingRoomId => _meetingRoomId;
@@ -17,9 +17,9 @@ namespace Reservation.Domain.AggregatesModel.ReservationAggregate
 
         private readonly List<MovableResource> _movableResources = new List<MovableResource>();
         public IReadOnlyCollection<MovableResource> MovableResources => _movableResources;
-        
+
         protected Reservation() { }
-        
+
         public Reservation(int meetingRoomId, int employeeId, List<MovableResource> resources)
         {
             _meetingRoomId = meetingRoomId;

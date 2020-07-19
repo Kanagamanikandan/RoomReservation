@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Reservation.Domain.SeedWork
 {
-    public interface IRepository<T> where T:IAggregateRoot
+    public interface IRepository<T> where T : IAggregateRoot
     {
         IUnitOfWork UnitOfWork { get; }
     }

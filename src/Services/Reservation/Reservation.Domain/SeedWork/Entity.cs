@@ -26,5 +26,6 @@ namespace Reservation.Domain.SeedWork
         {
             _domainEvents.Clear();
         }
+
     }
 }

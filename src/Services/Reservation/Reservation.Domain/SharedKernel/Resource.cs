@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Reservation.Domain.AbstractModel
+namespace Reservation.Domain.SharedKernel
 {
     public abstract class Resource : Entity
     {
