@@ -7,7 +7,11 @@ using System;
 namespace Reservation.API.Controllers
 {
     using Reservation.API.Application.Commands;
+    using Reservation.API.Application.Models;
+    using Reservation.API.Application.Queries;
     using Reservation.Domain.AggregatesModel.ReservationAggregate;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     [Route("api/[controller]")]
@@ -18,13 +22,17 @@ namespace Reservation.API.Controllers
         private readonly ILogger<ReservationController> _logger;
 
         private readonly IReservationRepository _reservationRepository;
+        private readonly IReservationQueries _reservationQueries;
+
         public ReservationController(IMediator mediator,
             ILogger<ReservationController> logger,
-            IReservationRepository reservationRepository)
+            IReservationRepository reservationRepository,
+            IReservationQueries reservationQueries)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _reservationRepository = reservationRepository ?? throw new ArgumentNullException(nameof(reservationRepository));
+            _reservationQueries = reservationQueries;
         }
 
 
@@ -39,6 +47,14 @@ namespace Reservation.API.Controllers
                 makeReservationCommand);
 
             return await _mediator.Send(makeReservationCommand);
+        }
+
+        [HttpGet]
+        [Route("meetingRooms")]
+        public async Task<ActionResult<IEnumerable<MeetingRoom>>> GetAvailableMeetingRooms(ReservationRequestDto requestDto)
+        {
+            var meetingRooms = await _reservationQueries.GetAvailableMeetingRooms(requestDto);
+            return Ok(meetingRooms);
         }
 
         

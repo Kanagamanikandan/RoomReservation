@@ -48,7 +48,7 @@ namespace Reservation.API
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule(new MediatorModule());
-            builder.RegisterModule(new ApplicationModule());
+            builder.RegisterModule(new ApplicationModule(Configuration["ConnectionString"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
