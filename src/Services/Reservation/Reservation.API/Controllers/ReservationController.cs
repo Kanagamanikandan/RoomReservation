@@ -29,7 +29,7 @@ namespace Reservation.API.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult< Reservation>> MakeReservationAsync([FromBody] MakeReservationCommand makeReservationCommand)
+        public async Task<ActionResult<Reservation>> MakeReservationAsync([FromBody] MakeReservationCommand makeReservationCommand)
         {
             _logger.LogInformation(
                 "----- Sending command: {CommandName} - {IdProperty}: {CommandId} ({@Command})",

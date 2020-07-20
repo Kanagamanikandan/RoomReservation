@@ -12,7 +12,7 @@ namespace Reservation.Domain.SharedKernel
         protected Resource() { }
         public Resource(ResourceType resourceType)
         {
-            ResourceType = ResourceType;
+            ResourceType = resourceType;
         }
 
     }

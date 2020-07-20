@@ -35,7 +35,8 @@ namespace Reservation.API.Application.Commands
 
             foreach (var resource in request.MovableResources)
             {
-                reservation.AddResource(new MovableResource(resource));
+                var movableResource = new MovableResource(resource);
+                reservation.AddResource(movableResource);
             }
 
             _logger.LogInformation("----- Making Reservation - Reservation: {@Reservation}", reservation);

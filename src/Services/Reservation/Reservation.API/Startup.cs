@@ -11,6 +11,8 @@ using Reservation.Infrastructure;
 using Microsoft.Extensions.Logging;
 using Autofac;
 using Reservation.API.Infrastructure.AutofacModules;
+using Newtonsoft.Json;
+using Reservation.API.Infrastructure.Filters;
 
 namespace Reservation.API
 {
@@ -36,7 +38,10 @@ namespace Reservation.API
                     Description = "The Reservation Microservice HTTP API."
                 });
             });
-            services.AddControllers();
+            services.AddControllers(options =>
+            {
+                options.Filters.Add(typeof(HttpGlobalExceptionFilter));
+            }).AddNewtonsoftJson();
             AddCustomDbContext(services, Configuration);
         }
 
