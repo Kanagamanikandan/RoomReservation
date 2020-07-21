@@ -14,7 +14,7 @@
     
 ## TODO
   1. Develop Employee service
-  2. Develop Integration Service
+  2. Develop Inventory Service
   3. Add domain events and integration events in the reservation service
   4. Develop UI
   5. Write unit tests
