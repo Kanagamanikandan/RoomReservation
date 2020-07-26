@@ -42,6 +42,10 @@
             return reservation;
         }
 
+        public IQueryable<Reservation> GetAllAsync()
+        {
+            return _context.Reservations.AsQueryable();
+        }
         public void Update(Reservation reservation)
         {
             _context.Entry(reservation).State = EntityState.Modified;

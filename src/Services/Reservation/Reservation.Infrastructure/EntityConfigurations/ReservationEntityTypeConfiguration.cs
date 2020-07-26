@@ -47,6 +47,12 @@
                 .HasColumnType("time(0)")
                 .IsRequired(true);
 
+            entity.Property<ReservationStatus>("_reservationStatus")
+                .UsePropertyAccessMode(PropertyAccessMode.Field)
+                .HasColumnName("ReservationStatus")
+                .HasColumnType("int")
+                .IsRequired(true);
+
             entity.HasOne<MeetingRoom>()
                 .WithMany()
                 .HasForeignKey("_meetingRoomId");

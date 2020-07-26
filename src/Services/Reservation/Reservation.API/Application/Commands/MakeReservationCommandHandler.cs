@@ -12,6 +12,8 @@ namespace Reservation.API.Application.Commands
     using Reservation.Domain.AggregatesModel.OfficeAggregate;
     using Reservation.Domain.AggregatesModel.ReservationAggregate;
     using Reservation.Domain.Exceptions;
+    using Reservation.Domain.Services;
+    using Reservation.Domain.SharedKernel;
 
     public class MakeReservationCommandHandler : IRequestHandler<MakeReservationCommand, Reservation>
     {
@@ -19,41 +21,43 @@ namespace Reservation.API.Application.Commands
         private readonly IReservationRepository _reservationRepository;
         private readonly IOfficeRepository _officeRepository;
         private readonly IMeetingRoomRepository _meetingRoomRepository;
+        private readonly ReservationService _reservationService;
         private readonly ILogger<MakeReservationCommandHandler> _logger;
 
         public MakeReservationCommandHandler(IMediator mediator,
             IReservationRepository reservationRepository,
             IOfficeRepository officeRepository,
             IMeetingRoomRepository meetingRoomRepository,
+            ReservationService reservationService,
             ILogger<MakeReservationCommandHandler> logger)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _reservationRepository = reservationRepository ?? throw new ArgumentNullException(nameof(reservationRepository));
-            _officeRepository = officeRepository;
-            _meetingRoomRepository = meetingRoomRepository;
+            _officeRepository = officeRepository ?? throw new ArgumentNullException(nameof(officeRepository));
+            _meetingRoomRepository = meetingRoomRepository ?? throw new ArgumentNullException(nameof(meetingRoomRepository));
+            _reservationService = reservationService ?? throw new ArgumentNullException(nameof(reservationService));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public async Task<Reservation> Handle(MakeReservationCommand request, CancellationToken cancellationToken)
         {
-            var meetingRoom = await _meetingRoomRepository.GetAsync(request.MeetingRoomId);
-            var office = await _officeRepository.GetAsync(meetingRoom.OfficeId);
+            List<MovableResource> movableResources = new List<MovableResource>();
+            foreach (var resource in request.MovableResources)
+            {
 
-            if (request.StartTime < office.OpenTime || request.EndTime > office.CloseTime)
-                throw new ReservationDomainException("Cannot reserve outside office hours");
+                ResourceType resourceType = (ResourceType)Enum.Parse(typeof(ResourceType), resource);
+                movableResources.Add(new MovableResource(resourceType));
+            }
 
-            var reservation = new Reservation(
+            var reservation = await Reservation.CreateReservation(
                 request.MeetingRoomId,
                 request.EmployeeId,
                 request.ReservationDate,
                 request.StartTime,
-                request.EndTime);
+                request.EndTime,
+                movableResources,
+                _reservationService);
 
-            foreach (var resource in request.MovableResources)
-            {
-                var movableResource = new MovableResource(resource);
-                reservation.AddResource(movableResource);
-            }
 
             _logger.LogInformation("----- Making Reservation - Reservation: {@Reservation}", reservation);
             

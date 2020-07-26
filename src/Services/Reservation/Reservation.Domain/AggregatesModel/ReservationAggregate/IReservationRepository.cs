@@ -1,4 +1,5 @@
 ﻿using Reservation.Domain.SeedWork;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Reservation.Domain.AggregatesModel.ReservationAggregate
@@ -8,5 +9,6 @@ namespace Reservation.Domain.AggregatesModel.ReservationAggregate
         Reservation Add(Reservation reservation);
         void Update(Reservation reservation);
         Task<Reservation> GetAsync(int reservationId);
+        IQueryable<Reservation> GetAllAsync();
     }
 }

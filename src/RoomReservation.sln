@@ -21,9 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reservation.Infrastructure"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inventory", "Inventory", "{1CEB72A4-229B-4739-9CBF-99D34E273B79}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InsomniaWorkspace", "InsomniaWorkspace", "{4E6FED1F-5986-4835-BE95-0A8E5F77168B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InsomniaWorkspace", "InsomniaWorkspace", "{F6529602-BAB3-4FA1-A79E-0BE9189FB5AB}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\kanag\Desktop\Insomnia_RoomReservation.json = C:\Users\kanag\Desktop\Insomnia_RoomReservation.json
+		Insomnia_RoomReservation.json = Insomnia_RoomReservation.json
 	EndProjectSection
 EndProject
 Global

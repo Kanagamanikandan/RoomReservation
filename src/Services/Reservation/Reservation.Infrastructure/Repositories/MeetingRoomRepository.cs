@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Reservation.Infrastructure.Repositories
 {
-    class MeetingRoomRepository : IMeetingRoomRepository
+    public class MeetingRoomRepository : IMeetingRoomRepository
     {
         private readonly ReservationContext _context;
         public IUnitOfWork UnitOfWork => _context;

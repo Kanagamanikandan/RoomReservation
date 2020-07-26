@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Reservation.Infrastructure.Repositories
 {
-    class OfficeRepository : IOfficeRepository
+    public class OfficeRepository : IOfficeRepository
     {
         private readonly ReservationContext _context;
 
