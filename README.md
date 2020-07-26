@@ -10,8 +10,8 @@
   4. Employee Service (TODO)
     It is intended to provide employee related information such as the base location of the employee and other information.
   5. Inventory Service (TODO)
-    Subscribes to the ReservationMadeIntegrationEvent from the Reservation Service, and allocates the corresponding resource. If resource allocation is successful, fires ResourceAllocationSuccessIntegrationEvent.
-    
+    Subscribes to the AllocateResourceIntegrationEvent from the Reservation Service, and allocates the corresponding resource. If resource allocation is successful, fires ResourceAllocationSuccessIntegrationEvent.
+    ![AllocateResourceIntegration](https://github.com/Kanagamanikandan/RoomReservation/blob/master/img/ResourceAllocationIntegrationEvent.PNG)
 ## TODO
   1. Develop Employee service
   2. Develop Inventory Service
