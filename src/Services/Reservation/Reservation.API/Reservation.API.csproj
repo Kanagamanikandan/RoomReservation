@@ -30,5 +30,9 @@
     <ProjectReference Include="..\Reservation.Infrastructure\Reservation.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Application\IntegrationEvents\" />
+  </ItemGroup>
+
 
 </Project>
